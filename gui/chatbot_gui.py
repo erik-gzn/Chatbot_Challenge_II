@@ -12,13 +12,13 @@ root = tk.Tk()
 root.title("Chatbot")
 
 
-text_area = tk.Text(root, height=50, width=100)
+text_area = tk.Text(root, height=20, width=50)
 text_area.pack()
 
 entry = tk.Entry(root, width=80)
 entry.pack()
 
 send_button = tk.Button(root, text="Senden", command=send_message)
-send_button.place(x=0, y=800)
+send_button.place(x=0, y=300)
 
 root.mainloop()
