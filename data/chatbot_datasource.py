@@ -60,5 +60,25 @@ def insert_answer(node_id, answer_text, next_node_id=None):
     conn.commit()
     conn.close()
 
-insert_node('Wie kann ich Ihnen helfen?', 0, None, None)
-insert_answer(1,"technisch", 2)
+def access_answer_for_node(given_parent_id):
+    conn = sqlite3.connect('chatbot_data.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT question, is_terminal, service_info FROM Nodes WHERE parent_id = ?", (given_parent_id,))
+    node = cursor.fetchone()
+    if not node:
+        
+        return "Kein passender Eintrag!"
+    else:
+        return node[0]
+    
+
+#Ersteinrichtung Datenbank:
+
+#setup_database()
+
+# Ersten zwei Einträge:
+#insert_node('Wie kann ich Ihnen helfen?', 0, 0, None)
+#insert_answer(1,"technisch", 2)
+
+
+#print(access_answer_for_node(0))
