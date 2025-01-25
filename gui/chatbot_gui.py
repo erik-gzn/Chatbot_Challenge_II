@@ -1,24 +1,38 @@
 import tkinter as tk
 from logic.chatbot_logic import get_response
 
+
+
+# def send_message():
+    
+#     user_input = str(entry.get())
+    
+#     response = str(get_response(user_input))
+    
+#     text_area.insert(tk.END, "You: " + user_input + "\n")
+#     text_area.insert(tk.END, "Bot: " + response + "\n")
+#     entry.delete(0, tk.END)
+
+# root = tk.Tk()
+# root.title("Chatbot")
+
+
+# text_area = tk.Text(root, height=20, width=50)
+# text_area.pack()
+
+# entry = tk.Entry(root, width=80)
+# entry.pack()
+
+# send_button = tk.Button(root, text="Senden", command=send_message)
+# send_button.place(x=0, y=300)
+
+#root.mainloop()
 def send_message():
-    user_input = str(entry.get())
-    response = str(get_response(user_input))
-    text_area.insert(tk.END, "You: " + user_input + "\n")
-    text_area.insert(tk.END, "Bot: " + response + "\n")
-    entry.delete(0, tk.END)
+    print("Hallo hier ist Ihr Chatbot!")
 
-root = tk.Tk()
-root.title("Chatbot")
+    terminal_status = False
 
-
-text_area = tk.Text(root, height=20, width=50)
-text_area.pack()
-
-entry = tk.Entry(root, width=80)
-entry.pack()
-
-send_button = tk.Button(root, text="Senden", command=send_message)
-send_button.place(x=0, y=300)
-
-root.mainloop()
+    while not terminal_status:
+        user_input = input("Antwort: ")
+        chatbots_answer = get_response(user_input)
+        print(chatbots_answer)

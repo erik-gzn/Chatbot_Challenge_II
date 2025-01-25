@@ -32,7 +32,7 @@ def setup_database():
     conn.close()
 
 
-setup_database()
+#setup_database()
 
 
 
@@ -60,25 +60,56 @@ def insert_answer(node_id, answer_text, next_node_id=None):
     conn.commit()
     conn.close()
 
-def access_answer_for_node(given_parent_id):
+def access_chatbots_answer(given_id):
     conn = sqlite3.connect('chatbot_data.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT question, is_terminal, service_info FROM Nodes WHERE parent_id = ?", (given_parent_id,))
+    cursor.execute("SELECT question, is_terminal, service_info FROM Nodes WHERE id = ?", (given_id,))
     node = cursor.fetchone()
+    
     if not node:
         
         return "Kein passender Eintrag!"
     else:
-        return node[0]
-    
+        return node
+
+def access_id_of_given_question(given_user_input):
+    conn = sqlite3
+    conn = sqlite3.connect('chatbot_data.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT next_node_id FROM Answers WHERE answer_text = ?", (given_user_input,))
+    gotten_next_node_id = cursor.fetchone()
+    print(type(gotten_next_node_id))
+    return gotten_next_node_id[0]
+
+
+
 
 #Ersteinrichtung Datenbank:
 
-#setup_database()
+# setup_database()
 
-# Ersten zwei Einträge:
-#insert_node('Wie kann ich Ihnen helfen?', 0, 0, None)
-#insert_answer(1,"technisch", 2)
+# GPT Einträge zum Funktionstest:
+# insert_node('Wie kann ich Ihnen helfen?', 0, 0, None)
+# insert_node('Benötigen Sie technische Hilfe?', 0, 1, None)
+# insert_node('Was genau funktioniert nicht?', 0, 2, None)
+# insert_node('Kontaktieren Sie Support A', 1, 3, 'Support A: 12345')
+# insert_node('Kontaktieren Sie Support B', 1, 3, 'Support B: 67890')
+# insert_node('Möchten Sie Informationen zur Abrechnung?', 0, 1, None)
+# insert_node('Kontaktieren Sie das Abrechnungsteam', 1, 6, 'Abrechnungsteam: 54321')
+
+# insert_answer(1,'technische Hilfe', 2)
+# insert_answer(1,'Abrechnung', 6)
+# insert_answer(2,'Ja', 3)
+# insert_answer(2,'Nein', 1)
+# insert_answer(3,'Mein Internet funktioniert nicht.', 4)
+# insert_answer(3,'Mein Gerät funktioniert nicht', 5)
+# insert_answer(6,'Ja', 7)
+# insert_answer(6,'Nein', 1)
 
 
-#print(access_answer_for_node(0))
+
+
+
+
+
+
