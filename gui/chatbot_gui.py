@@ -32,7 +32,14 @@ def send_message():
 
     terminal_status = False
 
-    while not terminal_status:
+    while terminal_status == False:
         user_input = input("Antwort: ")
         chatbots_answer = get_response(user_input)
-        print(chatbots_answer)
+        print(len(chatbots_answer))
+        if chatbots_answer[1] == 1:
+            print(chatbots_answer[0])
+            print("Service Info: " + chatbots_answer[2])
+            terminal_status = True
+            break
+        else:
+            print(chatbots_answer[0])
