@@ -28,18 +28,25 @@ from logic.chatbot_logic import get_response
 
 #root.mainloop()
 def send_message():
-    print("Hallo hier ist Ihr Chatbot!")
-
+    
     terminal_status = False
-
+    talk_status = 1
+    user_input = None
+    
     while terminal_status == False:
-        user_input = input("Antwort: ")
-        chatbots_answer = get_response(user_input)
+             
+        
+        chatbots_answer = get_response(user_input, talk_status)
+        
+        
         print(len(chatbots_answer))
-        if chatbots_answer[1] == 1:
-            print(chatbots_answer[0])
-            print("Service Info: " + chatbots_answer[2])
+        if chatbots_answer[2] == 1:
+            print(chatbots_answer[1])
+            print(chatbots_answer[4])
             terminal_status = True
             break
         else:
-            print(chatbots_answer[0])
+            print(chatbots_answer[1])
+            talk_status = chatbots_answer[0]
+
+        user_input = input("Antwort: ")
