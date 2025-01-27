@@ -7,9 +7,9 @@ def answer_transformer(answer_to_transform):
     best_match = process.extractOne(answer_to_transform, texts)
     return best_match
 
+
+
 # Funktion von ChatGPT:
-
-
 
 def load_database_entries(db_path, table_name):
     """
@@ -40,6 +40,3 @@ def load_database_entries(db_path, table_name):
 
     return results
 
-
-
-print(answer_transformer("AbbrechNung"))
