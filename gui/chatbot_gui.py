@@ -1,52 +1,65 @@
-import tkinter as tk
 from logic.chatbot_logic import get_response
+import customtkinter as ctk
+import time
+from tkinter import PhotoImage
 
 
-
-# def send_message():
-    
-#     user_input = str(entry.get())
-    
-#     response = str(get_response(user_input))
-    
-#     text_area.insert(tk.END, "You: " + user_input + "\n")
-#     text_area.insert(tk.END, "Bot: " + response + "\n")
-#     entry.delete(0, tk.END)
-
-# root = tk.Tk()
-# root.title("Chatbot")
-
-
-# text_area = tk.Text(root, height=20, width=50)
-# text_area.pack()
-
-# entry = tk.Entry(root, width=80)
-# entry.pack()
-
-# send_button = tk.Button(root, text="Senden", command=send_message)
-# send_button.place(x=0, y=300)
-
-#root.mainloop()
 def send_message():
-    
-    terminal_status = False
-    talk_status = 1
-    user_input = None
-    
-    while terminal_status == False:
-             
-        
-        chatbots_answer = get_response(user_input, talk_status)
-        
-        
-        print(len(chatbots_answer))
-        if chatbots_answer[2] == 1:
-            print(chatbots_answer[1])
-            print(chatbots_answer[4])
-            terminal_status = True
-            break
-        else:
-            print(chatbots_answer[1])
-            talk_status = chatbots_answer[0]
+    user_input = eingabefeld.get()
+    processed_answer = get_response(user_input)
+    schreibe_text(processed_answer[1], antwort_label)
 
-        user_input = input("Antwort: ")
+def schreibe_text(text, label):
+    label.configure(text="")  # Reset des Textes
+    for char in text:
+        label.configure(text=label.cget("text") + char)
+        label.update()
+        time.sleep(0.05)  # Geschwindigkeit der Textanzeige (kann angepasst werden)
+
+# Hauptfenster erstellen
+fenster = ctk.CTk()
+fenster.title("Bugchat GUI")
+fenster.geometry("900x600")  # Vergrößertes Fenster
+fenster.configure(bg_color="#2e3b4e")
+
+# Setze das Farbprofil auf dark
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("blue")
+
+# Layout - Zwei Spalten (direkt nebeneinander)
+# Left Frame: Dunkelblau
+frame_left = ctk.CTkFrame(fenster, width=400, height=600, corner_radius=0, fg_color="#2e3b4e")
+frame_left.grid(row=0, column=0, padx=0, pady=0, sticky="nsew")
+
+# Right Frame: Helleres Blau für den Chat
+frame_right = ctk.CTkFrame(fenster, width=500, height=600, corner_radius=0, fg_color="#3e4a61")
+frame_right.grid(row=0, column=1, padx=0, pady=0, sticky="nsew")
+
+# Configure das Grid, damit es dynamisch angepasst wird
+fenster.grid_rowconfigure(0, weight=1)
+fenster.grid_columnconfigure(0, weight=1, uniform="equal")
+fenster.grid_columnconfigure(1, weight=1, uniform="equal")
+
+# Label für den Chatbot-Namen (links oben)
+chatbot_name_label = ctk.CTkLabel(frame_left, text="Bugchat", font=("Helvetica", 72, "bold"), fg_color="#2e3b4e", text_color="white")
+chatbot_name_label.grid(row=0, column=0, padx=40, pady=40, sticky="w")
+
+# Label für die Antwort des Chatbots (rechts oben)
+antwort_label = ctk.CTkLabel(frame_right, text="", font=("Helvetica", 24), fg_color="#3e4a61", text_color="white", anchor="w", justify="left")
+antwort_label.grid(row=0, column=0, padx=40, pady=40, sticky="w")
+
+# Eingabefeld für den Nutzer (unten links) - jetzt in eigener Zelle
+eingabefeld = ctk.CTkEntry(frame_right, font=("Helvetica", 24), fg_color="#4b5a6f", text_color="white") #Insert Color entfernt
+eingabefeld.grid(row=1, column=0, padx=40, pady=20, sticky="ew")  # Verbreitert das Eingabefeld, sticky="ew" sorgt dafür, dass es sich horizontal ausdehnt
+
+# Senden-Button (unten rechts) - in einer eigenen Zelle
+senden_button = ctk.CTkButton(frame_right, text="Senden", font=("Helvetica", 24), fg_color="#4b5a6f", text_color="white", command=send_message)
+senden_button.grid(row=2, column=0, padx=40, pady=20, sticky="e")  # Der Button bleibt rechts ausgerichtet
+
+# Bild in der unteren linken Ecke des linken Frames (Bugchat-Seite)
+bild = PhotoImage(file="BUGLAND_Logo.png")  # Ersetze dies mit dem Pfad zum Bild
+image_label = ctk.CTkLabel(frame_left, image=bild, text="")
+image_label.grid(row=1, column=0, padx=40, pady=40, sticky="sw")
+
+# Hauptloop starten
+fenster.mainloop()
