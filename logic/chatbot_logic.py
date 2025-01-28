@@ -9,6 +9,7 @@ user_input = None
 
 def get_response(given_answer):
     global talk_status
+    
     if not given_answer:
         
         return access_chatbots_answer(talk_status)

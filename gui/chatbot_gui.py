@@ -10,6 +10,7 @@ def send_message():
     schreibe_text(processed_answer[1], antwort_label)
 
 def schreibe_text(text, label):
+    eingabefeld.delete(0, 'end')
     label.configure(text="")  # Reset des Textes
     for char in text:
         label.configure(text=label.cget("text") + char)
@@ -34,6 +35,9 @@ frame_left.grid(row=0, column=0, padx=0, pady=0, sticky="nsew")
 # Right Frame: Helleres Blau für den Chat
 frame_right = ctk.CTkFrame(fenster, width=500, height=600, corner_radius=0, fg_color="#3e4a61")
 frame_right.grid(row=0, column=1, padx=0, pady=0, sticky="nsew")
+frame_right.grid_rowconfigure(0, weight=1)  # Erste Zeile (Antwort-Label) soll sich dynamisch anpassen
+frame_right.grid_rowconfigure(1, weight=0)  # Zweite Zeile (Eingabefeld) soll eine feste Höhe haben
+frame_right.grid_rowconfigure(2, weight=0)  # Dritte Zeile (Senden-Button) soll auch eine feste Höhe haben
 
 # Configure das Grid, damit es dynamisch angepasst wird
 fenster.grid_rowconfigure(0, weight=1)
@@ -49,12 +53,12 @@ antwort_label = ctk.CTkLabel(frame_right, text="", font=("Helvetica", 24), fg_co
 antwort_label.grid(row=0, column=0, padx=40, pady=40, sticky="w")
 
 # Eingabefeld für den Nutzer (unten links) - jetzt in eigener Zelle
-eingabefeld = ctk.CTkEntry(frame_right, font=("Helvetica", 24), fg_color="#4b5a6f", text_color="white") #Insert Color entfernt
-eingabefeld.grid(row=1, column=0, padx=40, pady=20, sticky="ew")  # Verbreitert das Eingabefeld, sticky="ew" sorgt dafür, dass es sich horizontal ausdehnt
+eingabefeld = ctk.CTkEntry(frame_right, font=("Helvetica", 24), fg_color="#4b5a6f", text_color="white", width=350) #Insert Color entfernt
+eingabefeld.grid(row=1, column=0, padx=40, pady=10, sticky="ew")  # Verbreitert das Eingabefeld, sticky="ew" sorgt dafür, dass es sich horizontal ausdehnt
 
 # Senden-Button (unten rechts) - in einer eigenen Zelle
 senden_button = ctk.CTkButton(frame_right, text="Senden", font=("Helvetica", 24), fg_color="#4b5a6f", text_color="white", command=send_message)
-senden_button.grid(row=2, column=0, padx=40, pady=20, sticky="e")  # Der Button bleibt rechts ausgerichtet
+senden_button.grid(row=2, column=0, padx=40, pady=10, sticky="w")  # Der Button bleibt rechts ausgerichtet
 
 # Bild in der unteren linken Ecke des linken Frames (Bugchat-Seite)
 bild = PhotoImage(file="BUGLAND_Logo.png")  # Ersetze dies mit dem Pfad zum Bild
