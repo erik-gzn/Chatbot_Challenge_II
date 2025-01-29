@@ -6,7 +6,9 @@ from tkinter import PhotoImage
 def send_message():
     from chatbot_main import process_message
     process_message()
-    
+
+
+        
 def get_user_input():
     user_input = eingabefeld.get()
     return user_input
@@ -68,4 +70,6 @@ image_label = ctk.CTkLabel(frame_left, image=bild, text="")
 image_label.grid(row=1, column=0, padx=40, pady=40, sticky="sw")
 
 # Hauptloop starten
+
+
 fenster.mainloop()
