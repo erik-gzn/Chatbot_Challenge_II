@@ -1,13 +1,19 @@
-from logic.chatbot_logic import get_response
+#from logic.chatbot_logic import get_response
 import customtkinter as ctk
 import time
 from tkinter import PhotoImage
 
-
 def send_message():
+    from chatbot_main import process_message
+
+    process_message()
+    #user_input = eingabefeld.get()
+    #processed_answer = get_response(user_input)
+    #schreibe_text(processed_answer[1], antwort_label)
+
+def get_user_input():
     user_input = eingabefeld.get()
-    processed_answer = get_response(user_input)
-    schreibe_text(processed_answer[1], antwort_label)
+    return user_input
 
 def schreibe_text(text, label):
     eingabefeld.delete(0, 'end')
