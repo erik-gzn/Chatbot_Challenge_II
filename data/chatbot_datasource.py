@@ -96,10 +96,9 @@ def access_id_of_given_question(given_user_input, current_id):
     gotten_next_node_id = cursor.fetchone()
 
     if gotten_next_node_id:
-        
         return gotten_next_node_id[0]
     else:
-        print("Kein Eintrag gefunden, der zu den gegebenen Parametern passt. Bitte probieren Sie Ihre Eingabe erneut: ")
+        # print("Kein Eintrag gefunden, der zu den gegebenen Parametern passt. Bitte probieren Sie Ihre Eingabe erneut: ")
         return current_id
 
 

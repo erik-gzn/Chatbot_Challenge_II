@@ -27,4 +27,4 @@ class ChatBot:
         # Hole die Antwort anhand der ID
         response = access_chatbots_answer(answer_id)
         self.talk_status = response[0]  # Aktualisiere den Gesprächszustand
-        return response[1]
+        return response
