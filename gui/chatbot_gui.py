@@ -51,7 +51,7 @@ chatbot_name_label = ctk.CTkLabel(frame_left, text="Bugchat", font=("Helvetica",
 chatbot_name_label.grid(row=0, column=0, padx=40, pady=40, sticky="w")
 
 # Label für die Antwort des Chatbots (rechts oben)
-antwort_label = ctk.CTkLabel(frame_right, text="", font=("Helvetica", 24), fg_color="#3e4a61", text_color="white", anchor="w", justify="left")
+antwort_label = ctk.CTkLabel(frame_right, text="", font=("Helvetica", 24), fg_color="#3e4a61", text_color="white", anchor="w", justify="left", wraplength=400)
 antwort_label.grid(row=0, column=0, padx=40, pady=40, sticky="w")
 
 # Eingabefeld für den Nutzer (unten links) - jetzt in eigener Zelle

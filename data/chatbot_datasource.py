@@ -128,45 +128,16 @@ insert_answer(6,'Nein', 1)
 """
 
 
-# Eigene Einträge nach Prozesschart :
-# insert_node('Wie kann ich Ihnen helfen?', 0, 0, None) # Startknoten
-# insert_node('Handelt es sich bei Ihrem Problem um einen Notfall?', 0, 1, None) 
-# insert_node('Bitte eröffnen Sie ein Ticket im unten dargestellten Link. Gibt es ein weiteres Problem?', 0, 2, 'Ticketservice: www.bugland.de/ticketservice')
-# insert_node('Vielen Dank für die Nutzung unseres Ticketservices! Wir werden uns umgehend um Ihre Problem kümmern und uns wieder bei Ihnen melden!', 1, 3,)
-# insert_node('Wie können wir Ihnen sonst behilflich sein? Haben Sie ein technisches Problem, Fragen zur Abrechnung oder allgemeine Fragen?', 0, 4, None)
-# insert_node('Um welches Produkt handelt es sich?', 0, 5, None) 
+# Produktionsdaten:
+
+# setup_database()
+
+# insert_node( "Willkommen bei Bugchat! Wie kann ich Ihnen helfen?", 0, 0, "Wenn es sich bei Ihrem Problem um einen Notfall handelt, schreiben Sie bitte: Notfall")
+# insert_node( "Bleiben Sie ruhig, unter folgender Telefonnummer erreichen Sie unseren technischen Support...", 0, 1, "Technischer Support: 0800 459 8731 110 - Möchten Sie uns trotz Ihres Notfalls ein Feedback geben?")
+# insert_node( "Vielen Dank, dass Sie sich die Zeit nehmen, uns ein Feedback zu geben. Wir sind stets bemüht, unseren Service für Sie zu verbesern!", 1, 2, "Link zum Feedback: www.bugland.de/feedback")
+# insert_node( "Wir danken Ihnen ganz herzlich für die vertrauensvolle Nutzung unserer Services. Kontaktieren Sie uns, falls Sie weitere Hilfe benötigen!", 1, 2, "Bis zum nächsten mal...")
 
 
-# Windowfly: 
-# insert_node('In den Serviceinformationen finden Sie typische Problemstellungen sowie das Manual zur Windowfly. Sind diese Informationen zunächst ausreichend?', 0, 6, 'Serviceinformation zur Windowfly: www.bugland.de/guides/windowfly')
-# insert_node('Es tut uns leid, dass unsere Infotheke Ihnen nicht geholfen. Im nächsten Schritt können Sie unter der Serviceinformation ein Ticket erstellen. Ein Mitarbeiter oder eine Mitarbeiterin wird sich schnellstmöglich um Ihr Problem kümmern!', 1, 7, 'Ticketservice: www.bugland.de/ticketservice')
-# insert_node('Es freut uns, dass wir Ihnen bei Ihrem Problem behilflich sein konnten. Wir würden uns über ein Feedback freuen, um unseren Service entsprechend beizubehalten oder zu verbessern!', 1, 8, 'Feedback: www.bugland.de/feedback')
-
-# Cleanbug: 
-# insert_node('In den Serviceinformationen finden Sie typische Problemstellungen sowie das Manual zum Cleanbug. Sind diese Informationen zunächst ausreichend?', 0, 10, 'Serviceinformation zur Windowfly: www.bugland.de/guides/cleanbug')
-
-# Gardenbeetle: 
-# insert_node('In den Serviceinformationen finden Sie typische Problemstellungen sowie das Manual zum Gardenbeetle. Sind diese Informationen zunächst ausreichend?', 0, 11, 'Serviceinformation zur Windowfly: www.bugland.de/guides/gardenbeetle')
-
-
-
-
-# insert_answer(1, 'ja', 2)
-# insert_answer(1, 'nein', 4)
-# insert_answer(2, 'ja', 1)
-# insert_answer(2, 'nein', 3)
-# insert_answer(4, 'technisch', 5)
-
-
-# insert_answer(5, 'windowfly', 6)
-# insert_answer(6, 'nein', 7)
-# insert_answer(6, 'ja', 8)
-
-# insert_answer(5, 'cleanbug', 10)
-# insert_answer(10, 'nein', 7)
-# insert_answer(10, 'ja', 8)
-
-# insert_answer(5, 'gardenbeetle', 11)
-# insert_answer(11, 'nein', 7)
-# insert_answer(11, 'ja', 8)
-
+# insert_answer( 1, "Notfall", 2)
+# insert_answer( 2, "Ja", 3)
+# insert_answer( 2, "Nein", 4)
