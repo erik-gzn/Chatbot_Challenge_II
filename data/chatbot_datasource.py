@@ -134,7 +134,7 @@ insert_answer(6,'Nein', 1)
 
 # insert_node( "Willkommen bei Bugchat! Wie kann ich Ihnen helfen? ('technisches Problem', 'Frage zu ...')", 0, 0, "Wenn es sich bei Ihrem Problem um einen Notfall handelt, schreiben Sie bitte: Notfall")
 # insert_node( "Bleiben Sie ruhig, unter folgender Telefonnummer erreichen Sie unseren technischen Support...", 0, 1, "Technischer Support: 0800 459 8731 110 - Möchten Sie uns trotz Ihres Notfalls ein Feedback geben?")
-# insert_node( "Vielen Dank, dass Sie sich die Zeit nehmen, uns ein Feedback zu geben. Wir sind stets bemüht, unseren Service für Sie zu verbesern!", 1, 2, "Link zum Feedback: www.bugland.de/feedback")
+# insert_node( "Vielen Dank für die Nutzung unserer Services. Wir sind stets bemüht, unseren Support zu verbessern...", 1, 2, "...daher würden wir uns über ein Feedback freuen: www.bugland.de/feedback")
 # insert_node( "Wir danken Ihnen ganz herzlich für die vertrauensvolle Nutzung unserer Services. Kontaktieren Sie uns, falls Sie weitere Hilfe benötigen!", 1, 2, "Bis zum nächsten mal...")
 # insert_node( "Sie haben also ein technisches Problem. Habe ich das richtig verstanden?", 0, 1, None)
 # insert_node( "Um welches Produkt handelt es sich ('Windowfly', 'Cleanbug', 'Gardenbeetle')?", 0, 5, None)
@@ -146,8 +146,6 @@ insert_answer(6,'Nein', 1)
 # insert_node( "Mit welchen Informationen können wir Ihnen denn weiterhelfen? (Kontaktdaten, Fragen zur Abrechnung)", 0, 10, None)
 # insert_node( "Im folgenden finden Sie unsere Kontaktdaten. Sollten Sie eine weitere Frage haben, antworten Sie 'Ja' oder 'Nein'", 0, 11, "Öffnungszeiten: Montag - Freitag von 8:00 Uhr - 16:00 Uhr, Adresse: Industriestraße 12, 30159 Hannover, Mail: contact.support@bugland.de, Tel.: 0800 459 8732")
 # insert_node( "Im folgenden finden Sie einen Link zu unserem Abrechnungsportal", 0, 11, "Link zur Infotheke: www.bugland.de/finances - Haben Sie eine weitere Frage?")
-
-
 
 
 
@@ -169,7 +167,7 @@ insert_answer(6,'Nein', 1)
 
 # insert_answer( 1, "Frage zu, Information", 10)
 # insert_answer( 10, "Ja", 11)
-# insert_answer( 10, "Nein", 4)
+# insert_answer( 10, "Nein", 1)
 # insert_answer( 11, "Kontaktdaten", 12)
 # insert_answer( 11, "Fragen zur Abrechnung", 13)
 # insert_answer( 12, "Ja", 1)
