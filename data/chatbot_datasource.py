@@ -142,6 +142,15 @@ insert_answer(6,'Nein', 1)
 # insert_node( "Im folgenden finden Sie das Manual sowie typische Hürden des Cleanbug...", 0, 6, "Link zur Infotheke: www.bugland.de/guides/cleanbug - Haben Sie eine weitere Frage?")
 # insert_node( "Im folgenden finden Sie das Manual sowie typische Hürden des Gardenbeetle...", 0, 6, "Link zur Infotheke: www.bugland.de/guides/gardenbeetle - Haben Sie eine weitere Frage?")
 
+# insert_node( "Sie haben also eine generelle Frage zu unseren Services. Habe ich das richtig verstanden?", 0, 1, None)
+# insert_node( "Mit welchen Informationen können wir Ihnen denn weiterhelfen? (Kontaktdaten, Fragen zur Abrechnung)", 0, 10, None)
+# insert_node( "Im folgenden finden Sie unsere Kontaktdaten. Sollten Sie eine weitere Frage haben, antworten Sie 'Ja' oder 'Nein'", 0, 11, "Öffnungszeiten: Montag - Freitag von 8:00 Uhr - 16:00 Uhr, Adresse: Industriestraße 12, 30159 Hannover, Mail: contact.support@bugland.de, Tel.: 0800 459 8732")
+# insert_node( "Im folgenden finden Sie einen Link zu unserem Abrechnungsportal", 0, 11, "Link zur Infotheke: www.bugland.de/finances - Haben Sie eine weitere Frage?")
+
+
+
+
+
 # insert_answer( 1, "Notfall", 2)
 # insert_answer( 2, "Ja", 3)
 # insert_answer( 2, "Nein", 4)
@@ -157,3 +166,13 @@ insert_answer(6,'Nein', 1)
 # insert_answer( 8, "Nein", 3)
 # insert_answer( 9, "Ja", 1)
 # insert_answer( 9, "Nein", 3)
+
+# insert_answer( 1, "Frage zu, Information", 10)
+# insert_answer( 10, "Ja", 11)
+# insert_answer( 10, "Nein", 4)
+# insert_answer( 11, "Kontaktdaten", 12)
+# insert_answer( 11, "Fragen zur Abrechnung", 13)
+# insert_answer( 12, "Ja", 1)
+# insert_answer( 12, "Nein", 3)
+# insert_answer( 13, "Ja", 1)
+# insert_answer( 13, "Nein", 3)
