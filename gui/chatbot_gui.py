@@ -1,16 +1,12 @@
-#from logic.chatbot_logic import get_response
+
 import customtkinter as ctk
 import time
 from tkinter import PhotoImage
 
 def send_message():
     from chatbot_main import process_message
-
     process_message()
-    #user_input = eingabefeld.get()
-    #processed_answer = get_response(user_input)
-    #schreibe_text(processed_answer[1], antwort_label)
-
+    
 def get_user_input():
     user_input = eingabefeld.get()
     return user_input
@@ -18,10 +14,10 @@ def get_user_input():
 def schreibe_text(text, label):
     eingabefeld.delete(0, 'end')
     label.configure(text="")  # Reset des Textes
-    for char in text:
+    for char in text:         # Einzelne Buchstaben Funktion
         label.configure(text=label.cget("text") + char)
         label.update()
-        time.sleep(0.05)  # Geschwindigkeit der Textanzeige (kann angepasst werden)
+        time.sleep(0.03)  
 
 # Hauptfenster erstellen
 fenster = ctk.CTk()

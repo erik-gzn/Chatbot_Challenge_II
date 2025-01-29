@@ -1,11 +1,3 @@
-# from gui.chatbot_gui import send_message
-
-# while True:
-#     send_message() 
-
-
-# chatbot_main.py
-
 from gui.chatbot_gui import get_user_input, schreibe_text, antwort_label
 from logic.chatbot_logic import ChatBot
 
