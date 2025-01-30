@@ -52,12 +52,15 @@ fenster.grid_columnconfigure(1, weight=1, uniform="equal")
 chatbot_name_label = ctk.CTkLabel(frame_left, text="Bugchat", font=("Helvetica", 72, "bold"), fg_color="#2e3b4e", text_color="white")
 chatbot_name_label.grid(row=0, column=0, padx=40, pady=40, sticky="w")
 
+chatbot_explanation_label = ctk.CTkLabel(frame_left, text="Stichwörter: 'Notfall', 'Frage zu...' 'technisches Problem'", font=("Helvetica", 15, "bold"), fg_color="#2e3b4e", text_color="white")
+chatbot_explanation_label.grid(row=2, column=0, padx=30, pady=40, sticky="w")
+
 # Label für die Antwort des Chatbots (rechts oben)
 antwort_label = ctk.CTkLabel(frame_right, text="", font=("Helvetica", 24), fg_color="#3e4a61", text_color="white", anchor="w", justify="left", wraplength=400)
 antwort_label.grid(row=0, column=0, padx=40, pady=40, sticky="w")
 
 # Eingabefeld für den Nutzer (unten links) - jetzt in eigener Zelle
-eingabefeld = ctk.CTkEntry(frame_right, font=("Helvetica", 24), fg_color="#4b5a6f", text_color="white", width=350) #Insert Color entfernt
+eingabefeld = ctk.CTkEntry(frame_right, font=("Helvetica", 24), fg_color="#4b5a6f", text_color="white", width=350, placeholder_text="Wie kann ich Ihnen helfen?") #Insert Color entfernt
 eingabefeld.grid(row=1, column=0, padx=40, pady=10, sticky="ew")  # Verbreitert das Eingabefeld, sticky="ew" sorgt dafür, dass es sich horizontal ausdehnt
 
 # Senden-Button (unten rechts) - in einer eigenen Zelle
