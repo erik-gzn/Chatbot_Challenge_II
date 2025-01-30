@@ -21,7 +21,7 @@ class ChatBot:
 
     def _transform_input(self, user_input):
         # Hier transformierst du die Eingabe des Nutzers
-        return answer_transformer(user_input)
+        return answer_transformer(user_input, self.talk_status)
 
     def _get_next_answer_id(self, transformed_input):
         # Hole die ID der nächsten Antwort basierend auf der transformierten Eingabe

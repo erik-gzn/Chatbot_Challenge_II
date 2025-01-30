@@ -1,10 +1,11 @@
 import sqlite3
 from rapidfuzz import process
 
-def answer_transformer(answer_to_transform):
+def answer_transformer(answer_to_transform, talk_status):
     database_entries = load_database_entries("chatbot_data.db", "Answers")
-    texts = [entry[2] for entry in database_entries] # wandelt Datenbankzeilen in Liste von Strings (answer_text) um
+    texts = [entry[2] for entry in database_entries if int(entry[1]) == talk_status] # wandelt Datenbankzeilen in Liste von Strings (answer_text) um
     best_match = process.extractOne(answer_to_transform, texts)
+    print(best_match)
     return best_match
 
 
