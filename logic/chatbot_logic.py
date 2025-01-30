@@ -11,9 +11,13 @@ class ChatBot:
     def get_response(self, user_input):
         # Verarbeite die Antwort des Nutzers
         transformed_input = self._transform_input(user_input)
-        next_answer_id = self._get_next_answer_id(transformed_input)
-        response = self._fetch_answer(next_answer_id)
-        return response
+        if float(transformed_input[1]) > 60.0:
+            next_answer_id = self._get_next_answer_id(transformed_input)
+            response = self._fetch_answer(next_answer_id)
+            return response
+        else:
+            response = (self.talk_status, "Das habe ich leider nicht verstanden, bitte wiederholen Sie Ihre Antwort", 0, self.talk_status, None)
+            return response
 
     def _transform_input(self, user_input):
         # Hier transformierst du die Eingabe des Nutzers
