@@ -10,7 +10,7 @@ def process_message():
             
     user_input = get_user_input()  
     if user_input:
-        response = chatbot.get_response(user_input)
+        response = chatbot.get_response(user_input.lower()) # .lower für größere Präzision in DB
         
         if response[4]:
             schreibe_text(response[1], antwort_label)
