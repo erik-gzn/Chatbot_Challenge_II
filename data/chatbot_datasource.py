@@ -165,7 +165,7 @@ insert_answer(6,'Nein', 1)
 # insert_answer( 9, "Ja", 1)
 # insert_answer( 9, "Nein", 3)
 
-# insert_answer( 1, "Frage zu, Information", 10)
+# insert_answer( 1, "Frage zu", 10)
 # insert_answer( 10, "Ja", 11)
 # insert_answer( 10, "Nein", 1)
 # insert_answer( 11, "Kontaktdaten", 12)
