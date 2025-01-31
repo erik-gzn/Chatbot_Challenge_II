@@ -6,6 +6,7 @@ class ChatBot:
     def __init__(self):
         self.talk_status = 1
         self.terminal_status = False
+        self.misunderstandings = 0
 
   
     def get_response(self, user_input):
@@ -16,8 +17,14 @@ class ChatBot:
             response = self._fetch_answer(next_answer_id)
             return response
         else:
-            response = (self.talk_status, "Das habe ich leider nicht verstanden, bitte wiederholen Sie Ihre Antwort", 0, self.talk_status, None)
-            return response
+            
+            self.misunderstandings += 1
+            if self.misunderstandings <= 3:
+                response = (self.talk_status, "Das habe ich leider nicht verstanden, bitte wiederholen Sie Ihre Antwort", 0, self.talk_status, None)
+                return response
+            else: 
+                response = (self.talk_status, "Wir möchten nicht, dass Sie hier gefangen bleiben. Daher bitten wir Sie, Kontakt mit unserem Service aufzunehmen.", 1, self.talk_status, "Tel.: 0800 459 8732, E-Mail: contact.support@bugland.de, Mo-Fr von 8:00 - 16:00 Uhr")
+                return response
 
     def _transform_input(self, user_input):
         # Hier transformierst du die Eingabe des Nutzers
