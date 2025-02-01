@@ -19,4 +19,34 @@ def process_message():
             schreibe_text(response[4], antwort_label)
         else:
             schreibe_text(response[1], antwort_label)       # Andernfalls wird nur der hauptsächliche Text geprinted
-        
+
+""" ---------------------------------------------------------------------------
+Pseudocode für diese Funktion:
+
+
+from gui/chatbot_gui import "get_user_input", "schreibe_text", "antwort_label" 
+
+
+chatbot = new ChatBot()
+
+function process_message:
+	
+	user_input = get_user_intput()
+
+	if user_input != None:
+	
+		response = chatbot.get_response(lowercase(user_input))
+	
+		if response[4] != None:
+		
+			schreibe_text(response[1], antwort_label)
+	
+			pause(0.5s)
+		
+			schreibe_text(response[4], antwort_label)
+
+		else:
+			
+			schreibe_text(response[1], antwort_label)
+
+-------------------------------------------------------------------------"""
