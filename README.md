@@ -1,2 +1,2 @@
-# chatbot-test-2
-Python Chatbot - Challenge II ITECH - Test 2
+# Chatbot_Challenge_II
+Python Chatbot - Challenge II ITECH - Abgabe
