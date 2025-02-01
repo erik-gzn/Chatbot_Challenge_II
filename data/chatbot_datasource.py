@@ -1,13 +1,12 @@
-# Setup the database for the chatbot service
-
 import sqlite3
 
 def setup_database():
     conn = sqlite3.connect('chatbot_data.db')
     cursor = conn.cursor()
+    # Diese Tabelle enthält die Antworten/Fragen des Chatbots
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS Nodes (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id INTEGER PRIMARY KEY AUTOINCREMENT,   
             question TEXT NOT NULL,
             is_terminal INTEGER NOT NULL,
             parent_id INTEGER,
@@ -16,7 +15,7 @@ def setup_database():
                        
         );
     ''')
-
+    # Diese Tabelle enthält die möglichen Antworten des Users
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS Answers (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -32,14 +31,7 @@ def setup_database():
     conn.close()
 
 
-#setup_database()
-
-
-
-
-# INSERT-Funktion: 
-
-
+# Funktion schreibt in Node Tabelle:
 def insert_node(question, is_terminal, parent_id=None, service_info=None):
     conn = sqlite3.connect('chatbot_data.db')
     cursor = conn.cursor()
@@ -49,7 +41,7 @@ def insert_node(question, is_terminal, parent_id=None, service_info=None):
     ''', (question, is_terminal, parent_id, service_info))
     conn.commit()
     conn.close()
-
+# Funktion schreibt in Answers Tabelle:
 def insert_answer(node_id, answer_text, next_node_id=None):
     conn = sqlite3.connect('chatbot_data.db')
     cursor = conn.cursor()
@@ -60,6 +52,7 @@ def insert_answer(node_id, answer_text, next_node_id=None):
     conn.commit()
     conn.close()
 
+# Funktion sucht Chatbot-Antworten aus Tabelle Nodes
 def access_chatbots_answer(given_id):
     conn = sqlite3.connect('chatbot_data.db')
     cursor = conn.cursor()
@@ -75,22 +68,13 @@ def access_chatbots_answer(given_id):
     else:
         return node
 
-# def access_id_of_given_question(given_user_input):
-#     conn = sqlite3
-#     conn = sqlite3.connect('chatbot_data.db')
-#     cursor = conn.cursor()
-#     cursor.execute("SELECT next_node_id FROM Answers WHERE answer_text = ?", (given_user_input,))
-#     gotten_next_node_id = cursor.fetchone()
-#     print(type(gotten_next_node_id))
-#     return gotten_next_node_id[0]
 
-# Bugfix Versuch, mit current_id:
-
+# Diese Funktion sucht mögliche User-Antworten mit entsprechender ID
 def access_id_of_given_question(given_user_input, current_id):
     conn = sqlite3.connect('chatbot_data.db')
     cursor = conn.cursor()
     
-    # SQL-Abfrage anpassen, um sowohl answer_text als auch current_id zu überprüfen
+    # Bugfix: SQL-Abfrage, um sowohl answer_text als auch current_id zu überprüfen
     cursor.execute("SELECT next_node_id FROM Answers WHERE answer_text = ? AND node_id = ?", (given_user_input, current_id))
     
     gotten_next_node_id = cursor.fetchone()
