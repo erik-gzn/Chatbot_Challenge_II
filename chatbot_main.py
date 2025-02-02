@@ -23,10 +23,6 @@ def process_message():
 """ ---------------------------------------------------------------------------
 Pseudocode für diese Funktion:
 
-
-from gui/chatbot_gui import "get_user_input", "schreibe_text", "antwort_label" 
-
-
 chatbot = new ChatBot()
 
 function process_message:
